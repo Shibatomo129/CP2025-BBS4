@@ -109,9 +109,9 @@ textarea.form-control {
 
 .btn-primary, .btn-secondary, .btn-danger {
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-size: 28px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
