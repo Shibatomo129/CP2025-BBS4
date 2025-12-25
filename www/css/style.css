@@ -1,4 +1,10 @@
 /* css/style.css */
+button { font-size: 1em;
+       padding: 2px 25px;    
+       cursor: pointer;
+       background-color: rgba(255, 255, 0, 0.82);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: skyblue;
