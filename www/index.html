@@ -183,6 +183,9 @@ function createPostElement(post) {
             <button class="btn-delete" onclick="deletePost('${post.id}')">
                 削除
             </button>
+            <button class="btn-change" onclick="changePostColor('${post.id}')">
+                色変更
+            </button>
         </div>
     ` : '';
 
@@ -193,7 +196,7 @@ function createPostElement(post) {
                 <!-- 編集権限があれば、編集・削除機能を表示 -->
                 ${actions}
             </div>
-            <div class="post-content">${escapeHtml(post.content)}</div>
+            <div class="post-content" id="content-${post.id}">${escapeHtml(post.content)}</div>
             <div class="edit-form">
                 <textarea class="form-control" id="edit-${post.id}"></textarea>
                 <div class="button-group">
@@ -202,6 +205,9 @@ function createPostElement(post) {
                     </button>
                     <button class="btn-cancel" onclick="cancelEdit('${post.id}')">
                         キャンセル
+                    </button>
+                    <button class="time-color-btn" onclick="changePostColor('${post.id}')">
+                        色変更
                     </button>
                 </div>
             </div>
@@ -543,6 +549,30 @@ let currentColor = 0;
         }
     });
 });
+
+//文字色変更
+function changePostColor(postId) {
+    const contentElem = document.getElementById(`content-${postId}`);
+    if (!contentElem) return;
+
+    const currentColor = contentElem.dataset.color || '0';
+
+    if (currentColor === '0') {
+        contentElem.style.color = 'red';
+        contentElem.dataset.color = '1';
+    } else if (currentColor === '1') {
+        contentElem.style.color = 'blue';
+        contentElem.dataset.color = '2';
+    } else if (currentColor === '2') {
+        contentElem.style.color = 'green';
+        contentElem.dataset.color = '3';
+    } else {
+        contentElem.style.color = 'black'; 
+        contentElem.dataset.color = '0';
+    }
+}
+
+
 
 //効果音
 function playSound() {
