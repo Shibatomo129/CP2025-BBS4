@@ -120,6 +120,7 @@ function createPost(author, content) {
     postsRef.push(postData)
     .then(() => {
         showMessage('投稿が完了しました！');
+        playSound();
         $('#contentInput').val('');
         updateCharacterCount('contentInput', 'contentCount', 1000);
     })
@@ -543,6 +544,15 @@ let currentColor = 0;
     });
 });
 
+//効果音
+function playSound() {
+    var audio = new Audio();
+        audio.src = "button.mp3";
+    audio.currentTime = 0; 
+    audio.play().catch((error) => {
+        console.warn('効果音の再生に失敗:', error);
+    });
+}
 
     </script>
 </head>
