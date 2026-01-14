@@ -512,6 +512,28 @@ window.addEventListener('unload', () => {
     }
 });
 
+// 新たに追加する項目
+// 背景色変更
+$(function() {
+let currentColor = 0;
+    $('#colorBtn').on('click', function () {
+        if (currentColor === 0) {
+            $('body').css('background-color', '#ADFF2F');
+            currentColor = 1;
+        } else if (currentColor === 1) {
+            $('body').css('background-color', '#FFFACD');
+            currentColor = 2;
+        } else if (currentColor === 2) {
+            $('body').css('background-color', '#FFC0CB');
+            currentColor = 3;
+        }else if (currentColor === 3) {
+            $('body').css('background-color', '#87CEEB');
+            currentColor = 0;
+        }
+    });
+});
+
+
     </script>
 </head>
 <body>
